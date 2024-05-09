@@ -9,17 +9,17 @@ N="\e[0m"
 
 VALIDATE()
 {
-    if ($? -ne 0)
+    if $1 -ne 0)
     then    
-        echo  "FAILURE"
+        echo  "$2 FAILURE "
         exit 1
     else    
-        echo "SUCCESS"
+        echo "$2 SUCCESS"
     fi
 }
 
 USERID=$(id -u)
-if [ $USERID -ne 0]
+if [ $USERID -ne 0 ]
 then
     echo "Please Provide user Access "
 else
