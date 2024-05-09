@@ -13,7 +13,8 @@ do
     FOLDER=$(echo $line | awk -F " " '{print $NF}')
     if [ $USAGE -ge $THRESHOLD_LIMIT ]
     then 
-        echo your $DISC_USAGE_LIST is more than $THRESHOLD_LIMIT, from folder Name :  $FOLDER
+        #echo your $DISC_USAGE_LIST is more than $THRESHOLD_LIMIT, from folder Name :  $FOLDER
+        echo "$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $DISC_USAGE_LIST"
     fi
 
 done <<< $DISC_USAGE_LIST
