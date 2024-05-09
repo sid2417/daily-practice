@@ -22,6 +22,7 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
     echo "Please Provide user Access "
+    exit 1
 else
     echo "You already have a SUDO access"
 fi
