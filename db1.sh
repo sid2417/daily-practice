@@ -1,5 +1,4 @@
 #!/bin/bash/
-
 #sudo access #colors # logfile # timestamp
 #DB server installation
 
@@ -35,16 +34,16 @@ fi
 
 }
 
-dnf install mysql-server -y &>>LOG_FILE
+dnf install mysql-server -y &>>$LOG_FILE  
 VALIDATE $? "MySql Server Installation"
 
-systemctl enable mysqld &>>LOG_FILE
+systemctl enable mysqld &>>$LOG_FILE
 VALIDATE $? "Enabling MySql server"
 
-systemctl start mysqld &>>LOG_FILE
+systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "Starting MySql server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>LOG_FILE
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
 VALIDATE $? "Password Setup for MySql server"
 
 
