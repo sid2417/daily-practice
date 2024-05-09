@@ -1,5 +1,15 @@
 #!/bin/bash/
 
+set -e
+
+handle_error()
+{
+    echo "We are getting error at : $1 with error command : $2"
+}
+
+trap 'handle_error ${LINENO} $BASH_COMMAND' ERR
+
+
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
