@@ -6,7 +6,9 @@
 USERID=$(id -u)
 TIME_STAMP=$(date +%F-%H-%M-%S)
 SRCIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOG_FILE=/tmp/$SRCIPT_NAME/$TIME_STAMP.log
+LOG_FILE=/tmp/$SRCIPT_NAME-$TIME_STAMP.log
+#LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
+
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
