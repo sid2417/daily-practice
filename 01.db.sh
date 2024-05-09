@@ -2,7 +2,7 @@
 
 #color #rootuser #logfile # timestamp 
 
-source ./comman.sh
+#source ./comman.sh
 
 echo "Please Enter your DB password : "
 read DB_PASSWORD 
