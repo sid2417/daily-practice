@@ -4,7 +4,7 @@ set -e
 
 handle_error()
 {
-    echo "We are getting error at : $1 with error command : $2"
+    echo "We are getting error at line Number: $1 with error command : $2"
 }
 
 trap 'handle_error ${LINENO} $BASH_COMMAND' ERR
