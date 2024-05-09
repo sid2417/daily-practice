@@ -5,7 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-FILENAME=$(echo "$0" | cut -d "." -f2)
+FILENAME=$(echo "$0" | cut -d "." -f1)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE=/tmp/$FILENAME/$TIMESTAMP.log
 
