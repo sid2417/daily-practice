@@ -15,7 +15,8 @@ do
     if [ $USAGE -ge $THRESHOLD_LIMIT ]
     then 
         #echo "$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
-        MESSAGE="$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
+        #MESSAGE="$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
+        MESSAGE+="$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
 
     fi
 
