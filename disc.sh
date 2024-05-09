@@ -6,6 +6,7 @@
 
 THRESHOLD_LIMIT=15
 DISC_USAGE_LIST=$(df -hT | grep xfs )
+MESSAGE=""
 
 while IFS= read -r line
 do 
@@ -13,12 +14,14 @@ do
     FOLDER=$(echo $line | awk -F " " '{print $NF}')
     if [ $USAGE -ge $THRESHOLD_LIMIT ]
     then 
-        #echo your $DISC_USAGE_LIST is more than $THRESHOLD_LIMIT, from folder Name :  $FOLDER
-        echo "$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
+        #echo "$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
+        MESSAGE="$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
+
     fi
 
 done <<< $DISC_USAGE_LIST
 
+echo "message : $MESSAGE"
 
 
 
