@@ -2,6 +2,9 @@
 
 #color #rootuser #logfile # timestamp 
 
+echo "Please Enter your DB password : "
+read DB_PASSWORD 
+
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -42,7 +45,7 @@ VALIDATE $? "your Enabling was :"
 systemctl start mysqld &>LOGFILE
 VALIDATE $? "your Starting was :"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>LOGFILE
+mysql_secure_installation --set-root-pass -p${DB_PASSWORD} &>>LOGFILE
 VALIDATE $? "your mysql password setup was :"
 
 echo -e "$Y MYSQL process going Good.....$N"
