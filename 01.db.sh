@@ -33,16 +33,16 @@ FILENAME=$(echo "$0" | cut -d "." -f2)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE=/tmp/$FILENAME/$TIMESTAMP.log
 
-dnf install mysql-server -y &>>$LOGFILE
+dnf install mysql-server -y &>>LOGFILE
 VALIDATE $? "your installation was :"
 
-systemctl enable mysqld &>>$LOGFILE
+systemctl enable mysqld &>>LOGFILE
 VALIDATE $? "your Enabling was :"
 
-systemctl start mysqld &>>$LOGFILE
+systemctl start mysqld &>LOGFILE
 VALIDATE $? "your Starting was :"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>LOGFILE
 VALIDATE $? "your mysql password setup was :"
 
 echo -e "$Y MYSQL process going Good.....$N"
