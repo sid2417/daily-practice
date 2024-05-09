@@ -45,7 +45,13 @@ VALIDATE $? "your Enabling was :"
 systemctl start mysqld &>LOGFILE
 VALIDATE $? "your Starting was :"
 
-mysql_secure_installation --set-root-pass -p${DB_PASSWORD} &>>LOGFILE
+mysql -h db.happywithyogamoney.fun -uroot -p${DB_PASSWORD} -e 'SHOW DATABASES;'
+if [ $? -ne 0 ]
+then 
+    mysql_secure_installation --set-root-pass -p${DB_PASSWORD} &>>LOGFILE
+else
+    echo "Your password is already Setup.. Thankyou"
+fi
 VALIDATE $? "your mysql password setup was :"
 
 echo -e "$Y MYSQL process going Good.....$N"
