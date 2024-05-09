@@ -10,7 +10,7 @@ else
     exit 1
 fi
 
-FILENAME=${find $SOURCE_DIRECTORY -name "*.log" -mtime +14}
+FILENAME=$(find $SOURCE_DIRECTORY -name "*.log" -mtime +14)
 
 while IFS= read -r LINE
 do 
