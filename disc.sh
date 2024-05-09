@@ -16,13 +16,14 @@ do
     then 
         #echo "$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
         #MESSAGE="$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
-        MESSAGE+="$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
+        MESSAGE+="$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE \n"
 
     fi
 
 done <<< $DISC_USAGE_LIST
 
-echo "message : $MESSAGE"
+# echo "message : $MESSAGE"
+    echo -e "message : $MESSAGE" # to print a special charaters you mention -e for new line, just like enable
 
 
 
