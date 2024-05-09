@@ -10,7 +10,7 @@ read DB_PASSWORD
 
 
 dnf install mysql-server -y &>>$LOGFILE
-systemctl enable mysqlddd  &>>$LOGFILE
+systemctl enable mysqld  &>>$LOGFILE
 systemctl start mysqlddd &>>$LOGFILE
 mysql -h db.happywithyogamoney.fun -uroot -p${DB_PASSWORD} -e 'SHOW DATABASES;'
 if [ $? -ne 0 ]
