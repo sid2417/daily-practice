@@ -15,6 +15,7 @@ VALIDATE()
         exit 1
     else    
         echo "SUCCESS"
+    fi
 }
 
 USERID=$(id -u)
