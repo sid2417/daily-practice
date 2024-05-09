@@ -11,7 +11,7 @@ while IFS= read -r line
 do 
     USAGE=$(echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1)
     FOLDER=$(echo $line | awk -F " " '{print $NF}')
-    if [ $USAGE -ge $THRESHOLD_LIMIT]
+    if [ $USAGE -ge $THRESHOLD_LIMIT ]
     then 
         echo your $DISC_USAGE_LIST is more than $THRESHOLD_LIMIT, from folder Name :  $FOLDER
     fi
