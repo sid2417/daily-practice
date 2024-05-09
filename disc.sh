@@ -14,7 +14,7 @@ do
     if [ $USAGE -ge $THRESHOLD_LIMIT ]
     then 
         #echo your $DISC_USAGE_LIST is more than $THRESHOLD_LIMIT, from folder Name :  $FOLDER
-        echo "$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $DISC_USAGE_LIST"
+        echo "$FOLDER is more than $THRESHOLD_LIMIT, the current usage of the  $FOLDER is : $USAGE"
     fi
 
 done <<< $DISC_USAGE_LIST
