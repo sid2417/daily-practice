@@ -3,45 +3,46 @@
 #color #rootuser #logfile # timestamp 
 
 R="\e[31m"
-Y="\e[32m"
-G="\e[33m"
+G="\e[32m"
+Y="\e[33m"
 N="\e[0m"
+
 
 VALIDATE()
 {
     if [ $1 -ne 0 ]
     then    
-        echo  "$2 FAILURE "
+        echo  -e "$2 $R FAILURE $N "
         exit 1
     else    
-        echo "$2 SUCCESS"
+        echo -e "$2 $G SUCCESS $N"
     fi
 }
 
 USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
-    echo "Please Provide user Access "
+    echo -e "$R Please Provide user Access $N"
     exit 1
 else
-    echo "You already have a SUDO access"
+    echo -e "$G You already have a SUDO access $N"
 fi
 
-FILENAME="echo $$" | cut -d "." -f2
 
+FILENAME=$(echo "$0" | cut -d "." -f2)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-LOGFILE=$FILENAME+$TIMESTAMP+.log
+LOGFILE=/tmp/$FILENAME/$TIMESTAMP.log
 
-dnf install mysql-server -y
+dnf install mysql-server -y &>>$LOGFILE
 VALIDATE $? "your installation was :"
 
-systemctl enable mysqld
+systemctl enable mysqld &>>$LOGFILE
 VALIDATE $? "your Enabling was :"
 
-systemctl start mysqld
+systemctl start mysqld &>>$LOGFILE
 VALIDATE $? "your Starting was :"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
 VALIDATE $? "your mysql password setup was :"
 
-echo "MYSQL process going Good....."
+echo -e "$Y MYSQL process going Good.....$N"
