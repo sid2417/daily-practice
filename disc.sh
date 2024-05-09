@@ -3,6 +3,7 @@
 #disk usage column
 #disc usage folder name
 #disk usage column -ge 15 ---> we need to remove data
+#(df -hT | grep xfs | awk -F " " '{print $6F}' | cut -d "%" -f1)
 
 THRESHOLD_LIMIT=15
 DISC_USAGE_LIST=$(df -hT | grep xfs )
@@ -23,8 +24,10 @@ do
 done <<< $DISC_USAGE_LIST
 
 # echo "message : $MESSAGE"
-    echo -e "message : $MESSAGE" # to print a special charaters you mention -e for new line, just like enable
 
+echo -e "message : $MESSAGE"      # to print a special charaters you mention (-e) for new line, just like enable
 
+#echo "This is a test mail & Date $(date)" | mail -s "message" info@joindevops.com
+#echo "Body" | mail -s "Subject" To Address
 
-#(df -hT | grep xfs | awk -F " " '{print $6F}' | cut -d "%" -f1)
+echo "$MESSAGE" | mail -s "DISC USAGE ALERT" siddhu1smore@gmail.com
