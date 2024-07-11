@@ -27,7 +27,7 @@ done <<< $DISC_USAGE_LIST
 
 echo -e "message : $MESSAGE"      # to print a special charaters you mention (-e) for new line, just like enable
 
-#echo "This is a test mail & Date $(date)" | mail -s "message" info@joindevops.com
+#echo "This is a test mail & Date $(date)" | mail -s "message" siddhu1smore@gmail.com
 #echo "Body" | mail -s "Subject" To Address
 
 echo "$MESSAGE" | mail -s "DISC USAGE ALERT" siddhu1smore@gmail.com
